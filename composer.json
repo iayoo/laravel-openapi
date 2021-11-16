@@ -1,0 +1,20 @@
+{
+    "name": "iayoo/laravel-openapi",
+    "description": "openapi for laravel 8",
+    "keywords": ["laravel", "api", "openapi"],
+    "homepage": "https://github.com/iayoo/laravel-openapi",
+    "authors": [
+        {
+            "name": "Iayoo",
+            "email": "vilnius94@163.com"
+        }
+    ],
+    "require": {
+        "php": "^7.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "Iayoo\\OpenApi\\": "src/"
+        }
+    }
+}
