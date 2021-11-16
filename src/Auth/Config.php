@@ -31,6 +31,11 @@ class Config
 
     protected $app_token;
 
+    protected $verify_timestamp = false;
+
+    protected $timestamp_expire = 120*1000;
+    
+
     public function init(){
         $this->initEnv();
     }

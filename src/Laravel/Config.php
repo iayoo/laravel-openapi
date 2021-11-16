@@ -7,6 +7,9 @@ use Illuminate\Support\Facades\Cache;
 
 class Config extends \Iayoo\OpenApi\Auth\Config
 {
+    
+    
+    
     public function config($key)
     {
         return config("open_api.{$key}");
@@ -34,8 +37,8 @@ class Config extends \Iayoo\OpenApi\Auth\Config
                 throw new AuthException();
             }
             Cache::add("open_api_{$this->app_id}",[
-                'app_key'=>$data->app_key,
-                'app_secret'=>$data->app_secret,
+                'app_key'    => $data->app_key,
+                'app_secret' => $data->app_secret,
             ]);
             $this->setAppKey($data->app_key);
             $this->setAppSecret($data->app_secret);
@@ -45,6 +48,8 @@ class Config extends \Iayoo\OpenApi\Auth\Config
 
     public function initEnv()
     {
-        $this->app_mode = $this->config('app_mode');
+        $this->app_mode         = $this->config('app_mode');
+        $this->verify_timestamp = $this->config('verify_timestamp');
+        $this->timestamp_expire = $this->config('timestamp_expire');
     }
 }

@@ -11,9 +11,7 @@ abstract class AuthFactory implements ApiAuthInteface
 
     protected $params;
 
-    protected $verifyTimestamp = false;
-
-    protected $time_limit = 120*1000;
+    
 
     /** @var Config */
     protected $config;
