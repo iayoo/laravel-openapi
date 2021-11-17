@@ -34,13 +34,47 @@ class Config
     protected $verify_timestamp = false;
 
     protected $timestamp_expire = 120*1000;
-    
+
 
     public function init(){
         $this->initEnv();
     }
 
     public function initEnv(){}
+
+    /**
+     * @return bool
+     */
+    public function isVerifyTimestamp()
+    {
+        return $this->verify_timestamp;
+    }
+
+    /**
+     * @param bool $verify_timestamp
+     */
+    public function setVerifyTimestamp($verify_timestamp)
+    {
+        $this->verify_timestamp = $verify_timestamp;
+    }
+
+    /**
+     * @return float|int
+     */
+    public function getTimestampExpire()
+    {
+        return $this->timestamp_expire;
+    }
+
+    /**
+     * @param float|int $timestamp_expire
+     */
+    public function setTimestampExpire($timestamp_expire)
+    {
+        $this->timestamp_expire = $timestamp_expire;
+    }
+
+    
 
     public function setFromAppId(){
         return $this->cache("open_api_{$this->app_id}");

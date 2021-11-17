@@ -17,7 +17,7 @@ class AppKeySecret extends AuthFactory
     public function sign()
     {
         $params = $this->params;
-        if ($this->verifyTimestamp){
+        if ($this->config->isVerifyTimestamp()){
             $this->timestamp();
         }
         ksort($params);

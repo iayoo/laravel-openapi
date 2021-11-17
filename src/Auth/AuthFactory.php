@@ -11,7 +11,7 @@ abstract class AuthFactory implements ApiAuthInteface
 
     protected $params;
 
-    
+
 
     /** @var Config */
     protected $config;
@@ -25,7 +25,7 @@ abstract class AuthFactory implements ApiAuthInteface
         if (!isset($this->params['timestamp'])){
             throw new ParamsException("Timestamp Error");
         }
-        if (((microtime(TRUE)*1000) - (int)$this->params['timestamp']) > $this->time_limit){
+        if (((microtime(TRUE)*1000) - (int)$this->params['timestamp']) > $this->config->getTimestampExpire()){
             throw new ParamsException("Timestamp Limit Error");
         }
     }
