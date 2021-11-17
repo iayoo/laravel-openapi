@@ -19,23 +19,4 @@ class OpenApi
         $apiAuth->check();
         return $next($request);
     }
-
-    /**
-     * Helper to get the config values.
-     *
-     * @param  string  $key
-     * @param  string  $default
-     *
-     * @return mixed
-     */
-    protected function config($key, $default = null)
-    {
-        return config("open_api.$key", $default);
-    }
-
-    protected function initConfig(){
-        if ($this->config('env_driver') == 'model'){
-
-        }
-    }
 }
