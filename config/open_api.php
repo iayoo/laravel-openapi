@@ -4,14 +4,16 @@ return [
 
     /*
     * --------------------------------------------------------------------------
-    * Cross-Origin Resource Sharing (CORS) Configuration
+    * Open-Api Configuration
     * --------------------------------------------------------------------------
     */
-
+    // 应用数据模型
     'db_model' => '',
-
+    // 多应用/但应用
     'app_mode' => 'multi',
+    // 是否校验时间戳
     'verify_timestamp' => true,
+    // 时间戳有效时长(单位:微秒)
     'timestamp_expire' => 120*1000,
 
 ];
