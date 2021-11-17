@@ -57,9 +57,9 @@ class AppKeySecret extends AuthFactory
         $this->sign = $sign;
     }
 
-    public function checkSign(){
+    public function check(){
         if ($this->sign() !== $this->sign){
-//            throw new AuthException();
+            throw new AuthException();
         }
     }
 }

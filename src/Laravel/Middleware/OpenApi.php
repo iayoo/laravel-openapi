@@ -16,7 +16,7 @@ class OpenApi
         $apiAuth->setHeader($request->header());
         $apiAuth->setParams($request->input());
         $apiAuth->setSign($request->header('sign'));
-        $apiAuth->checkSign();
+        $apiAuth->check();
         return $next($request);
     }
 
