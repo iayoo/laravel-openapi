@@ -42,6 +42,19 @@ return [
 ];
 ```
 
+配置中间件
+
+在`app\Kernel.php`文件中
+
+```php
+protected $middlewareGroups = [
+        'api' => [
+            // 在对应的目录下新增中间件
+            \Iayoo\OpenApi\Laravel\Middleware\OpenApi::class,
+        ],
+    ];
+```
+
 配置应用模型model
 
 新增的model要继承 `Iayoo\OpenApi\Laravel\model\App`
