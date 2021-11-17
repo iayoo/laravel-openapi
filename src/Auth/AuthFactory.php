@@ -8,10 +8,7 @@ use Iayoo\OpenApi\Exception\ParamsException;
 
 abstract class AuthFactory implements ApiAuthInteface
 {
-
     protected $params;
-
-
 
     /** @var Config */
     protected $config;
