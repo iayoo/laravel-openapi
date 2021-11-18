@@ -59,7 +59,11 @@ class AppKeySecret extends AuthFactory
 
     public function check(){
         if ($this->sign() !== $this->sign){
-            throw new AuthException();
+            $message = "";
+            if ($this->config->config('debug')){
+                $message = '正确签名为:' . $this->sign();
+            }
+            throw new AuthException("签名错误" . ($message?":{$message}":''));
         }
     }
 }
