@@ -2,6 +2,7 @@
 namespace Iayoo\OpenApi\Laravel;
 
 use Iayoo\OpenApi\Exception\AuthException;
+use Iayoo\OpenApi\Exception\ParamsException;
 use Iayoo\OpenApi\Laravel\model\App;
 use Illuminate\Support\Facades\Cache;
 
@@ -30,6 +31,9 @@ class Config extends \Iayoo\OpenApi\Auth\Config
 
         if ($this->app_mode == 'multi'){
             // 多app模式
+            if(!class_exists($this->config('db_model'))){
+                throw new ParamsException("model do not exists");
+            }
             /** @var App $model */
             $model = app()->make($this->config('db_model'));
             $data = $model->getAppInfo($this->app_id);
