@@ -13,7 +13,6 @@ class Config extends \Iayoo\OpenApi\Auth\Config
     
     public function config($key)
     {
-        dump(config("open_api.{$key}"));
         return config("open_api.{$key}");
     }
 
