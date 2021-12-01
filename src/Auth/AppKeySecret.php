@@ -22,7 +22,7 @@ class AppKeySecret extends AuthFactory
         }
         ksort($params);
         $query_string = urldecode(http_build_query($params));
-        $string =  md5($query_string) . $this->config->getAppKey() . ":" . $this->config->getAppSecret();
+        $string =  md5($query_string) . "app_key:" . $this->config->getAppSecret();
         return md5($string);
     }
 
