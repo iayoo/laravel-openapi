@@ -3,6 +3,7 @@
 
 namespace Iayoo\OpenApi\Auth;
 
+use Iayoo\OpenApi\Exception\ParamsException;
 
 class Config
 {
@@ -109,6 +110,9 @@ class Config
      */
     public function setAppId($app_id)
     {
+        if(empty($app_id)){
+            throw new ParamsException("应用ID不能为空");
+        }
         $this->app_id = $app_id;
     }
 
