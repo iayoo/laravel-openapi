@@ -38,7 +38,7 @@ class Config extends \Iayoo\OpenApi\Auth\Config
             $model = app()->make($this->config('db_model'));
             $data = $model->getAppInfo($this->app_id);
             if (empty($data)){
-                throw new AuthException();
+                throw new ParamsException("应用不存在");
             }
             Cache::add("open_api_{$this->app_id}",[
                 'app_key'    => $data->app_key,
