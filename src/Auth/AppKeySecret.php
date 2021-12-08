@@ -21,9 +21,22 @@ class AppKeySecret extends AuthFactory
             $this->timestamp();
         }
         ksort($params);
-        $query_string = urldecode(http_build_query($params));
+        $query_string = urldecode($this->parseParams($params));
         $string =  md5($query_string) . "app_key:" . $this->config->getAppSecret();
         return md5($string);
+    }
+
+    public function parseParams($params){
+        $stringArr = [];
+        foreach ($params as $key => $param){
+            if (is_numeric($param) || is_string($param)){
+                $stringArr[] = "{$key}={$param}";
+            }
+            if (is_array($param)){
+                $stringArr[] = "{$key}=" . json_encode($param,JSON_UNESCAPED_SLASHES);
+            }
+        }
+        return implode("&",$stringArr);
     }
 
     public function init()
